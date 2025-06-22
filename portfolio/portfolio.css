@@ -1,0 +1,275 @@
+/* ------------------- BASE ------------------- */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------- HEADER & NAV ------------------- */
+header {
+  background-color: #00557f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #00557f;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ------------------- MAIN & GRIDS ------------------- */
+main {
+  padding: 40px 20px;
+}
+
+.top-grid,
+.info-grid,
+.info-grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  padding: 0 10px;
+}
+
+.info-grid2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ------------------- CARDS ------------------- */
+.card,
+.info-card,
+.card-flip {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.info-card-flip{
+  background-color: rgba(14, 42, 94, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* Carte en pleine largeur */
+.full-width {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+}
+
+/* ------------------- FLIP CARD ------------------- */
+.card-flip {
+  perspective: 1000px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-flip.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* ------------------- IMAGE ------------------- */
+.img-projet {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 15px;
+  display: block;
+}
+
+.inline-img {
+  display: inline-block;
+  width: 45%;
+  margin: 2%;
+}
+
+/* ------------------- TITRES ------------------- */
+.card h2,
+.info-card h3 {
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.card h2:hover,
+.info-card h3:hover {
+  color: #00557f;
+  cursor: pointer;
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+  background-color: #00557f;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 40px;
+}
+
+/* ------------------- IMAGE ZOOM MODAL ------------------- */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  cursor: zoom-out;
+  transition: transform 0.3s ease;
+}
+
+.image-modal.show {
+  display: flex;
+}
+
+
+/* ===== Styles pour le Sommaire de la page index.html ===== */
+
+.sommaire-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sommaire-item {
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.sommaire-item:hover {
+  background-color: #dceeff;
+  transform: translateY(-2px);
+}
+
+.sommaire-item a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 768px) {
+  header {
+    padding: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  main {
+    padding: 20px 10px;
+  }
+
+  .card,
+  .info-card,
+  .card-flip {
+    padding: 15px;
+    height: auto !important;
+  }
+
+  .img-projet {
+    margin-top: 10px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .info-card h3 {
+    font-size: 1rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+}

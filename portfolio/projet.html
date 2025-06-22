@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Projet</title>
+  <link rel="stylesheet" href="portfolio.css" />
+</head>
+<body>
+  <header>
+    <h1>Mon Projet</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="projet.html">Mon Projet</a></li>
+        <li><a href="formation.html">Ma Formation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Grille pour les 3 premières cartes côte à côte -->
+    <div class="top-grid">
+      <section class="card">
+        <h2 id="contexte">Contexte</h2>
+        <p>
+          Le projet consistait à mettre en place un réseau sécurisé pour une PME avec des services essentiels comme DHCP et
+          DNS. Tous les ordinateurs de l'entreprise doivent pouvoir accéder à Internet, avec une contrainte particulière : 
+          l'utilisation simultanée d’un DNS privé et d’un DNS public. Le réseau devait permettre la navigation via des liens
+          HTTP, prouvant ainsi le bon fonctionnement de la résolution de noms.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2 id="cisco">Qu'est-ce que Cisco Packet Tracer ?</h2>
+        <p>
+          Cisco Packet Tracer est un logiciel d’apprentissage interactif conçu pour modéliser le comportement
+          des réseaux informatiques, incluant les routeurs, commutateurs, points d’accès, pare-feux, ordinateurs,
+          serveurs, et bien d’autres équipements. Il propose une interface graphique intuitive qui facilite la conception
+          de topologies réseau et la simulation du trafic et des protocoles (tels qu’OSPF, RIP, EIGRP, DHCP, etc.).
+        </p>
+      </section>
+
+      <section class="card">
+        <h2 id="fonctionnement">Comment ça fonctionne ?</h2>
+        <p>
+          Le réseau est fonctionnel comme dans une entreprise réelle : les postes clients peuvent accéder à un serveur
+          public, un serveur privé de l’entreprise, ainsi qu’au serveur du fournisseur d'accès (Orange dans ce cas).
+        </p>
+      </section>
+    </div>
+
+    <!-- Image en dessous -->
+    <section class="card full-width">
+      <h2 id="illustration">Illustration du projet</h2>
+      <img src="images/topologie reseau complete.png" alt="Schéma réseau" class="img-projet" />
+    </section>
+
+    <!-- Nouvelle section avec sous-sections côte à côte -->
+    <section class="card full-width">
+      <h2 id="technique">Explications techniques du projet</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Outils utilisés</h3>
+          <ul>
+            <li>Cisco Packet Tracer</li>
+            <li>Routeurs & Commutateurs Cisco</li>
+            <li>DNS, DHCP</li>
+            <li>Serveurs HTTP</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>Fonctionnalités mises en place</h3>
+          <ul>
+            <li>Accès Internet pour tous les postes</li>
+            <li>Résolution DNS publique et privée</li>
+            <li>Serveur DHCP centralisé</li>
+            <li>Architecture sécurisée</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>Résultat</h3>
+          <p>
+            Le réseau respecte les contraintes demandées : navigation via noms de domaine, isolation des services internes,
+            et accès sécurisé à Internet.
+          </p>
+        </div>
+      </div>
+      <h2 id="dhcp">Service DHCP et switches</h2>
+      <div class="info-grid2">
+        <div class="info-card">
+          <h3>Le service DHCP</h3>
+          <p>
+            Le service DHCP était une des contraintes à respecter pour l'adressage IP de l'entreprise. Une partie des ordinateurs
+            devait être adressée automatiquement. Voici un focus sur cette partie :
+          </p>
+          <div class="img-wrapper">
+            <img src="images/partie_DHCP.png" alt="Partie DHCP" class="inline-img" />
+            <img src="images/switches_wifi.png" alt="Switches Wifi" class="inline-img" />
+          </div>
+        </div>
+
+        <!-- Carte interactive avec flip -->
+        <div class="info-card-flip card-flip">
+          <div class="card-inner">
+            <div class="card-front">
+              <h3>Le switch wifi</h3>
+              <p>
+                Nous avons vu précédemment qu'une partie des ordinateurs connectés via DHCP sont en wifi. Cette fonction a été mise en place pour
+                simplifier l’accès réseau des ordinateurs portables. Pour cela, un switch wifi a été utilisé avec un mot de passe sécurisé.
+              </p>
+              <img src="images/config_switch_wifi.png" alt="Schéma réseau" class="img-projet" />
+            </div>
+            <div class="card-back">
+              <h3>Configuration des ordinateurs</h3>
+              <p>
+                Voici les paramètres des ordinateurs avec leur adresse ip automatiquement configurée en DHCP et le mot de 
+                passe déjà entré pour que chaque ordinateur puisse se connecter au réseau. 
+              </p>
+              <img src="images/interface_pc_wifi.png" alt="Config switch" class="img-projet" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card-flip card-flip">
+          <div class="card-inner">
+            <div class="card-front">
+              <h3>les Switches en RJ 45</h3>
+              <p>
+                afin de connecter tous les ordinateurs de l'entreprise au routeur facilement, on a disposé des switches 
+                pour démultiplier le nombre de ports disponibles pour accueillir les stations de travaildu personnel.
+               Ces switches sont programmés pour faire du Spanning-Tree.
+              </p>
+              <img src="images/topologie switches.png" alt="Config switch" class="img-projet" />
+            </div>
+
+            <div class="card-back">
+              <h3>définition du Spanning-Tree</h3>
+              <p>
+                Le Spanning Tree Protocol (STP) est un protocole réseau utilisé pour empêcher les boucles dans un
+                 réseau Ethernet comportant plusieurs switches. Il désactive automatiquement certains liens redondants
+                  pour créer une topologie sans boucle. STP choisit un switch racine et calcule les chemins les plus 
+                  ourts vers celui-ci, bloquant les autres liens pour éviter les tempêtes de broadcast et les doublons.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>pourquoi mettre plusieurs switches en redondance ?</h3>
+          <p>
+            Mettre plusieurs switches en redondance permet de garantir la continuité du réseau en cas de panne. 
+            Si un switch ou un lien tombe en panne, le trafic peut automatiquement passer par un autre chemin grâce
+            à la redondance. Cela améliore la tolérance aux pannes, la disponibilité du réseau et assure un meilleur 
+            débit en répartissant la charge sur plusieurs liens lorsque STP ou ses variantes le permettent.
+          </p>
+          <img src="images/table de spanning tree.png" alt="Config switch" class="img-projet" />
+        </div>
+      </div>
+     <h2 id="routage">Explications du routage au sein de l'entrepris et du FAI</h2>
+      <div class="info-grid">
+        <div class="info-card-flip card-flip">
+          <div class="card-inner">
+            <div class="card-front">
+              <h3>Le routage</h3>
+              <p>
+                pour que le personnel de l'entreprise puisse joindre le fournisseur d'accès à internet il faut que 
+                les paquets soient envoyés au bon endroit et que tous les routeurs se comprennent entre eux. Pour 
+                cela, il a été choisi de mettre en place le protocole OSPF car il est plus simple à mettre en oeuvre 
+                pour les entreprises comprennant beaucoup de routeurs. Il évite de mettre beaucoup de routes statiques 
+                et est plus évolutif, ce qui est primordial pour l'entreprise. Il permet de pouvoir s'adapter à l'arrivée d'
+                un nouveau routeur sans modifier la configuration de tous les routeurs.
+                Voici la configuration pour un routeur de mon réseau :
+              </p>
+              <img src="images/show ip ospf neighbor.png" alt="Config switch" class="img-projet" />
+            </div> 
+            <div class="card-back">
+              <h3>définition de OSPF</h3>
+              <p>
+                OSPF (Open Shortest Path First) est un protocole de routage dynamique à état de lien utilisé dans les 
+                réseaux IP. Il permet aux routeurs d’échanger des informations sur la topologie du réseau pour calculer le 
+                chemin le plus court vers chaque destination, en utilisant l’algorithme de Dijkstra.
+
+                OSPF est un protocole interne (IGP), rapide, évolutif et adapté aux réseaux de taille moyenne à grande. Il 
+                divise le réseau en zones hiérarchiques (dont une zone backbone appelée area 0), ce qui permet d’optimiser 
+                les performances et la gestion du routage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="info-card">
+          <h3>expemple de OSPF pour le FAI</h3>
+          <p>
+            Comme dit précedemment, il a été mis en place un système de routage dynamique pour le FAI et l'entreprise 
+            et en voici une illustration pour le FAI :
+          </p>
+          <img src="images/FAI.png" alt="Config switch" class="img-projet" />
+        </div>
+        
+         <div class="info-card">
+          <h3>Le role de OSPF pour notre FAI</h3>
+          <p>
+            Dans notre réseau de fournisseur d’accès à Internet (FAI) de grande échelle comme Orange, OSPF (
+              Open Shortest Path First) sert de protocole IGP pour orchestrer le routage interne au sein de l’Autonomous
+              System. Contrairement au protocole de bord BGP qui échange les routes entre systèmes autonomes, OSPF gère 
+              la découverte dynamique des chemins à l’intérieur du réseau de l’opérateur
+          </p>
+         </div>
+      </div>
+     <h2 id="dns">La résolution de nom et les serveurs web</h2>
+
+       <div class="info-grid">
+          <div class="info-card-flip card-flip">
+            <div class="card-inner">
+             <div class="card-front">
+              <h3>les serveurs DNS</h3>
+              <p>
+                Dans le réseau de notre entreprise, nous avons un système de DNS qui permettent de trouver les serveurs où 
+                sont hébergés les sites sans avoir à retenir leurs adresses IP. Cela permet aux personnel de l'entreprise de 
+                pouvoir accéder facilement au serveur en local. Nous avons un DNS privé et un DNS public qui ont des tables DNS 
+                qui permettent de trouver l'un ou l'autre via n'importe quelle machine de l'entreprise.<br/>
+                je vous ai mis ci-dessous une illustration des DNS privés et publics :
+              </p>
+              <img src="./images/représentation-des-DNS.png" alt="Config switch" class="img-projet" />
+              </div>
+              <div class="card-back">
+              <h3>définition de DNS</h3>
+              <p>
+                Le DNS (Domain Name System) est un système qui permet de traduire les noms de domaine lisibles par les 
+                humains (comme www.orange.com) en adresses IP compréhensibles par les machines (comme 100.0.0.1).
+                Il fonctionne comme un annuaire d’Internet : lorsqu’un utilisateur tape une adresse web, le DNS interroge 
+                différents serveurs pour trouver l’adresse IP correspondante, afin que l’ordinateur puisse se connecter au 
+                bon serveur.<br/><br/>
+
+                Le DNS est essentiel au fonctionnement d’Internet, car il évite d’avoir à mémoriser des adresses IP complexes 
+                pour accéder aux sites web ou aux services en ligne.
+              </p>
+              </div>
+            </div>
+          </div>
+       </div>
+
+       <div class="info-grid">
+          <div class="info-card-flip card-flip">
+            <div class="card-inner">
+              <div class="card-front">
+                <h3>pourquoi mettre deux DNS dans l'entreprise ?</h3>
+                <p>
+                  Pour un meilleur fonctionnement de l'entreprise on a choisi de mettre deux serveurs DNS pour plusieurs 
+                  raisons :<br/>
+                  Premièrement, cela permet que le personnel de l'entreprise qui est connecté en permanence au dns privé 
+                  ne vienne pas encombrer le serveur DNS public de requêtes.<br/>
+                  Deuxièmement, cela permet qui si un des deux serveurs DNS tombe en panne, le personnel puisse encore avoir 
+                  accès au site de l'entreprise.<br/>
+                  Pour finir, c'est aussi pour des raisons de sécurité parce-que si on a seulement un serveur DNS public, 
+                  dess personnes mal intentionnées pourraient avoir accès à des informations privées qui sont indiquées 
+                  par le DNS privé.
+                </p>
+              </div>
+              <div class="card-back">
+                <h3>Qui serai suceptible d'attaquer un DNS ?</h3>
+                <p>
+                  1. Hackers ou cybercriminels
+                  exemple : rediriger un utilisateur vers un faux site bancaire pour voler ses identifiants.<br/><br/>
+
+                  2. Groupes de pirates organisés
+                  But : mener des attaques de plus grande ampleur (cyberterrorisme, guerre numérique).<br/>
+	                Méthodes : attaques DDoS massives contre des serveurs DNS critiques (ex. : attaque contre Dyn en 2016).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-card-flip card-flip">
+              <div class="card-inner">
+               <div class="card-front">
+                  <h3>Le DNS privé</h3>
+                  <p>
+                  voici les informations qui ont été entrées dans la table de mon DNS privé pou pouvoir joindre le DNS public 
+                  et le DNS du FAI :
+                 </p>
+                  <img src="./images/table-dns-netlinkprive.png" alt="Config switch" class="img-projet" />
+                </div>
+
+                <div class="card-back">
+                  <h3>Le DNS public</h3>
+                    <p>
+                     Maintenant que vous avez vu la table du serveur DNS privé, je vais vous montrer celle du serveur DNS public 
+                     qui est quasiment identique :
+                    </p>
+                    <img src="./images/table-dns-netlinkpublic.png" alt="Config switch" class="img-projet" />
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Étudiant en BUT Réseaux et Télécommunications</p>
+  </footer>
+
+  <!-- ZOOM IMAGE Overlay -->
+  <div id="image-modal" class="image-modal">
+    <img id="modal-img" src="" alt="Zoom image" />
+  </div>
+
+  <!-- JS pour flip card et zoom image -->
+<!-- Lightbox pour le zoom -->
+<div id="image-modal" class="image-modal">
+  <img id="modal-img" src="" alt="Zoom image" />
+</div>
+
+<script>
+// 🔁 Retournement des cartes
+document.querySelectorAll('.card-flip').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
+});
+
+// 🔍 Zoom d'image (lightbox)
+document.querySelectorAll('img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', (e) => {
+    // Empêche d'activer le flip si l'image est dans une carte
+    e.stopPropagation();
+
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    modalImg.src = img.src;
+    modal.classList.add('show');
+  });
+});
+
+document.getElementById('image-modal').addEventListener('click', () => {
+  document.getElementById('image-modal').classList.remove('show');
+});
+</script>
+
+</body>
+</html>
